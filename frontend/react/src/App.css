@@ -465,7 +465,7 @@ border-top-right-radius:150px ;
   border-bottom-left-radius: 190px;
 }
 #loginbg {
-  background-image: url('login1.jpg');
+  background-image: url('/login1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -473,7 +473,7 @@ border-top-right-radius:150px ;
   padding: 40px;
 }
 #regisbg {
-  background-image: url('regibg.png');
+  background-image: url('/regibg.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -599,7 +599,7 @@ label{
 }
 
 #back {
-  background-image: url(about.png);
+  background-image: url("/about.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size:cover;
