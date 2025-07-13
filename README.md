@@ -1,4 +1,4 @@
-# Edunova-react
+# Edunova-react educational website with firebase authentication
 :
 
 🔗 Live Website -https://edunova-courses-md.netlify.app/ 
