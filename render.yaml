@@ -10,3 +10,5 @@ services:
         value: project.settings
       - key: PYTHON_VERSION
         value: 3.11
+      - key: PYTHONPATH
+        value: backend
