@@ -1,6 +1,6 @@
 # Edunova-react educational website with firebase authentication
 :
-
+#open this desktop or laptop only
 🔗 Live Website -https://edunova-courses-md.netlify.app/ 
 👉 Edunova Courses
 Explore the live version of the Edunova Courses platform.
