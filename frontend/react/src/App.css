@@ -700,7 +700,7 @@ button:hover {
   box-shadow: 0px 5px 18px gold;
  
   border-radius: 5px;
-  background-image: url('cer.png');
+  background-image: url('/cer.png');
   font-family: Georgia,serif;
   color:gold;
   background-position: center;
