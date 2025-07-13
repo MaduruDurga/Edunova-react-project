@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
-import axios from 'axios';
-import { auth } from './firebaseConfig';  // make sure this path is correct
+import { auth } from './firebaseConfig';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -15,26 +14,17 @@ const Login = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-      const token = await user.getIdToken();
 
-      const res = await axios.post(
-        "http://127.0.0.1:8000/login/",
-        {},
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+      // Save user info (optional)
+      localStorage.setItem("user", JSON.stringify(user));
 
-      if (res.status === 200) {
-        alert("Login success");
-        localStorage.setItem("user", JSON.stringify(res.data));
-        navigate('/');
-      }
+      alert("Login success");
+      navigate('/');
     } catch (err) {
       if (err.code === "auth/wrong-password" || err.code === "auth/user-not-found") {
         alert("Wrong email or password");
-      } else if (err.response && err.response.status === 401) {
-        alert("Backend auth failed");
       } else {
-        alert("Something went wrong: " + (err.message || err.toString()));
+        alert("Error: " + err.message);
       }
     }
   };
@@ -76,8 +66,10 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           /><br />
-          <p style={{ textAlign: "right", cursor: "pointer", color: "blue", margin: "5px 0" }}
-            onClick={handleForgotPassword}>
+          <p
+            style={{ textAlign: "right", cursor: "pointer", color: "blue", margin: "5px 0" }}
+            onClick={handleForgotPassword}
+          >
             Forgot Password?
           </p>
           <br />
